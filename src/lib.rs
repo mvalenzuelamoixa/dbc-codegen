@@ -52,6 +52,8 @@ pub fn codegen(dbc_name: &str, dbc_content: &[u8], out: impl Write, debug: bool)
     writeln!(&mut w)?;
     writeln!(&mut w, "use core::ops::BitOr;")?;
     writeln!(&mut w, "use bitvec::prelude::*;")?;
+    writeln!(&mut w, "#[allow(unused)]")?;
+    writeln!(&mut w, "use num_traits::float::FloatCore;")?;
     writeln!(w, r##"#[cfg(feature = "arb")]"##)?;
     writeln!(&mut w, "use arbitrary::{{Arbitrary, Unstructured}};")?;
     writeln!(&mut w)?;

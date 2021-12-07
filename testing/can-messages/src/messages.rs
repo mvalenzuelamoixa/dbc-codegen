@@ -10,6 +10,8 @@
 
 use core::ops::BitOr;
 use bitvec::prelude::*;
+#[allow(unused)]
+use num_traits::float::FloatCore;
 #[cfg(feature = "arb")]
 use arbitrary::{Arbitrary, Unstructured};
 
