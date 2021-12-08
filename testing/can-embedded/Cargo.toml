@@ -6,6 +6,7 @@ edition = "2018"
 
 [dependencies]
 bitvec = { version = "0.22", default-features = false }
+num-traits = "0.2.14"
 
 [features]
 debug = []

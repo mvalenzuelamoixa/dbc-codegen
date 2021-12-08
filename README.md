@@ -50,6 +50,7 @@ For this to work you need to add following dependencies to `Cargo.toml`:
 ```toml
 bitvec = { version = "0.21", default-features = false }
 arbitrary = { version = "1.0", optional = true } # Enable with `arb` feature
+num-traits = "0.2.14"
 ```
 
 To use the code, add `mod messages` to your `lib.rs` (or `main.rs`).
