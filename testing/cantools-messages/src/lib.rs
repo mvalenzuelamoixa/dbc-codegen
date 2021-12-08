@@ -50,6 +50,18 @@ fn pack_message_signed_positive() {
 }
 
 #[test]
+fn pack_message_inexact_scale() {
+    let dbc_codegen_foo = can_messages::FooInexact::new(0.08, -0.035).unwrap();
+    let current = unsafe { example_foo_inexact_current_encode(-0.035) };
+    let voltage = unsafe { example_foo_inexact_voltage_encode(0.08) };
+
+    let foo_inexact = example_foo_inexact_t { current, voltage };
+    let mut buffer: [u8; 4] = [0; 4];
+    unsafe { example_foo_inexact_pack(buffer.as_mut_ptr(), &foo_inexact, buffer.len() as u64) };
+    assert_eq!(dbc_codegen_foo.raw(), buffer);
+}
+
+#[test]
 fn pack_big_endian_signal_with_start_bit_zero() {
     let dbc_codegen_bar = can_messages::Dolor::new(0.5).unwrap();
     let one_float = unsafe { example_dolor_one_float_encode(0.5) };
